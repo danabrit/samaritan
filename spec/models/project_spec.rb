@@ -17,10 +17,23 @@
 require 'spec_helper'
 
 describe Project do
-  it { should validate_presence_of :name }
-  it { should validate_presence_of :description }
-  it { should validate_presence_of :begin_time }
-  it { should validate_presence_of :end_time }
-  it { should validate_presence_of :location }
-  it { should validate_presence_of :children_allowed }
+  it "should validate presence of name" do
+    bad_project = FactoryGirl.build(:project, name: nil)
+    expect(bad_project).to be_invalid
+  end
+
+  it "should validate presence of description" do
+    bad_project = FactoryGirl.build(:project, description: nil)
+    expect(bad_project).to be_invalid
+  end
+
+  it "should validate presence of location" do
+    bad_project = FactoryGirl.build(:project, location: nil)
+    expect(bad_project).to be_invalid
+  end
+
+  it "should validate presence of children_allowed" do
+    bad_project = FactoryGirl.build(:project, children_allowed: nil)
+    expect(bad_project).to be_invalid
+  end
 end

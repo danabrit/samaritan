@@ -17,13 +17,13 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'annotate'
 
-group :test do
+group :development, :test do
   gem 'factory_girl'
   gem 'factory_girl_rails' # Need factory_girl_rails here to keep Rails from generating fixtures when new models are created.
-  gem 'shoulda'
   gem 'rspec-rails'
-  gem 'shoulda-matchers'
   gem 'capybara'
-  gem 'launchy' # Automatically opens pages in capybara tests when save_and_open_page is used
+end
+
+group :test do
   gem 'database_cleaner'
 end
