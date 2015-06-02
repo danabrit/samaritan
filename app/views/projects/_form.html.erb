@@ -1,0 +1,10 @@
+<%= form_for @project do |form| %>
+  <%= form.label :name %> <%= form.text_field :name %><br />
+  <%= form.label :description %> <%= form.text_area :description %><br />
+  <%= form.label :begin_time %> <%= form.text_field :begin_time %><br />
+  <%= form.label :end_time %> <%= form.text_field :end_time %><br />
+  <%= form.label :location %> <%= form.text_field :location %><br />
+  <%= form.label :supplies_required %> <%= form.text_area :supplies_required %><br />
+  <%= form.label :children_allowed %> <%= form.check_box :children_allowed %><br />
+  <%= form.submit %>
+<% end %>

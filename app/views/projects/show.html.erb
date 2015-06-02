@@ -1,0 +1,10 @@
+<h1><%= @project.name %></h1>
+
+Description: <%= @project.description %><br />
+Beginning Date/Time: <%= @project.begin_time %><br />
+Ending Date/Time: <%= @project.end_time %><br />
+Location: <%= @project.location %><br />
+Supplies Required: <%= @project.supplies_required %><br />
+Are Children Allowed? <%= @project.children_allowed? ? "Yes" : "No" %>
+
+<p><%= link_to "Edit This Project", edit_project_path(@project) %></p>
