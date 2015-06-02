@@ -12,9 +12,10 @@
 #  children_allowed  :boolean          default(FALSE)
 #  created_at        :datetime
 #  updated_at        :datetime
+#  sponsoring_org    :string(255)
 #
 
 class Project < ActiveRecord::Base
   validates_presence_of :name, :description, :location,
-                        :children_allowed
+                        :children_allowed, :sponsoring_org
 end

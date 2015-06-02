@@ -12,6 +12,7 @@
 #  children_allowed  :boolean          default(FALSE)
 #  created_at        :datetime
 #  updated_at        :datetime
+#  sponsoring_org    :string(255)
 #
 
 FactoryGirl.define do
@@ -23,6 +24,7 @@ FactoryGirl.define do
     location          "Pine Wood Park"
     supplies_required "Gloves and trash bags"
     children_allowed  true
+    sponsoring_org    "The Clean Parks Committee"
   end
 
   factory :invalid_project, class: Project do

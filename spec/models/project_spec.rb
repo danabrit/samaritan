@@ -12,6 +12,7 @@
 #  children_allowed  :boolean          default(FALSE)
 #  created_at        :datetime
 #  updated_at        :datetime
+#  sponsoring_org    :string(255)
 #
 
 require 'spec_helper'
@@ -34,6 +35,11 @@ describe Project do
 
   it "should validate presence of children_allowed" do
     bad_project = FactoryGirl.build(:project, children_allowed: nil)
+    expect(bad_project).to be_invalid
+  end
+
+  it "should validate presence of sponsoring_org" do
+    bad_project = FactoryGirl.build(:project, sponsoring_org: nil)
     expect(bad_project).to be_invalid
   end
 end

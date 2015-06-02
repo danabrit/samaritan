@@ -5,6 +5,7 @@ Beginning Date/Time: <%= @project.begin_time %><br />
 Ending Date/Time: <%= @project.end_time %><br />
 Location: <%= @project.location %><br />
 Supplies Required: <%= @project.supplies_required %><br />
-Are Children Allowed? <%= @project.children_allowed? ? "Yes" : "No" %>
+Are Children Allowed? <%= @project.children_allowed? ? "Yes" : "No" %><br />
+Sponsoring Organization <%= @project.sponsoring_org %>
 
 <p><%= link_to "Edit This Project", edit_project_path(@project) %></p>
