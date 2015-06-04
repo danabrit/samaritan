@@ -17,3 +17,7 @@
 .flash_alert {
   background-color: #f6fdcc;
 }
+
+.required {
+  font-weight: bold;
+}
