@@ -17,5 +17,6 @@
 
 class Project < ActiveRecord::Base
   validates_presence_of :name, :description, :location,
-                        :children_allowed, :sponsoring_org
+                        :children_allowed, :sponsoring_org,
+                        :begin_time, :end_time
 end

@@ -42,4 +42,14 @@ describe Project do
     bad_project = FactoryGirl.build(:project, sponsoring_org: nil)
     expect(bad_project).to be_invalid
   end
+
+  it "should validate presence of begin_time" do
+    bad_project = FactoryGirl.build(:project, begin_time: nil)
+    expect(bad_project).to be_invalid
+  end
+
+  it "should validate presence of end_time" do
+    bad_project = FactoryGirl.build(:project, end_time: nil)
+    expect(bad_project).to be_invalid
+  end
 end

@@ -5,11 +5,11 @@
 <%= form_for @project do |form| %>
   <%= form.label :name, class: "required" %> <%= form.text_field :name %><br />
   <%= form.label :description, class: "required" %> <%= form.text_area :description %><br />
-  <%= form.label :begin_time %> <%= form.text_field :begin_time, class: 'datetimepicker' %><br />
-  <%= form.label :end_time %> <%= form.text_field :end_time, class: 'datetimepicker' %><br />
+  <%= form.label :sponsoring_org, class: "required" %> <%= form.text_area :sponsoring_org %><br />
+  <%= form.label :begin_time, class: "required" %> <%= form.text_field :begin_time, class: 'datetimepicker' %><br />
+  <%= form.label :end_time, class: "required" %> <%= form.text_field :end_time, class: 'datetimepicker' %><br />
   <%= form.label :location, class: "required" %> <%= form.text_field :location %><br />
   <%= form.label :supplies_required %> <%= form.text_area :supplies_required %><br />
   <%= form.label :children_allowed, class: "required" %> <%= form.check_box :children_allowed %><br />
-  <%= form.label :sponsoring_org, class: "required" %> <%= form.text_area :sponsoring_org %><br />
   <%= form.submit %>
 <% end %>
