@@ -1,7 +1,36 @@
 <h1>Projects</h1>
 
-<p><%= link_to "New Project", new_project_path %></p>
+<div>
+  <div class="buttons">
+    <%= link_to "New Project", new_project_path, class: "button" %>
+  </div>
+  <div class="clear"></div>
+</div>
 
-<% @projects.each do |project| %>
-  <%= link_to project.name, project %><br />
-<% end %>
+<table class="long_table">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Begins</th>
+    <th>Ends</th>
+    <th>Location</th>
+    <th>Supplies</th>
+    <th></th>
+  </tr>
+  <% @projects.each do |project| %>
+    <tr class="<%= cycle('odd', 'even') %>">
+      <td><%= link_to project.name, project %></td>
+      <td><%= project.description %></td>
+      <td><%= project.begin_time %></td>
+      <td><%= project.end_time %></td>
+      <td><%= project.location %></td>
+      <td><%= project.supplies_required %></td>
+      <td>
+        <%= image_tag("children.png", title: "Children Are Allowed to Attend", 
+              alt: "Children allowed") if project.children_allowed? %>
+        <%= link_to image_tag("edit.png", title: "Edit #{ project.name }", 
+              alt: "Edit"), edit_project_path(project) %>
+      </td>
+    </tr>
+  <% end %>
+</table>

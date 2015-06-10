@@ -1,15 +1,17 @@
-<% @project.errors.each do |error| %>
-  <p><%= error %></p>
+<% @project.errors.messages.each do |message| %>
+  <p><%= message[0].to_s %> <% message[1].each do |error| %>
+                           <%= error %>
+                         <% end %></p>
 <% end %>
 
 <%= form_for @project do |form| %>
   <%= form.label :name, class: "required" %> <%= form.text_field :name %><br />
   <%= form.label :description, class: "required" %> <%= form.text_area :description %><br />
-  <%= form.label :sponsoring_org, class: "required" %> <%= form.text_area :sponsoring_org %><br />
-  <%= form.label :begin_time, class: "required" %> <%= form.text_field :begin_time, class: 'datetimepicker' %><br />
-  <%= form.label :end_time, class: "required" %> <%= form.text_field :end_time, class: 'datetimepicker' %><br />
+  <%= form.label :sponsoring_org, "Sponsoring Organization", class: "required" %> <%= form.text_area :sponsoring_org %><br />
+  <%= form.label :begin_time, "Date/Time Starts", class: "required" %> <%= form.text_field :begin_time, class: 'datetimepicker' %><br />
+  <%= form.label :end_time, "Date/Time Ends", class: "required" %> <%= form.text_field :end_time, class: 'datetimepicker' %><br />
   <%= form.label :location, class: "required" %> <%= form.text_field :location %><br />
-  <%= form.label :supplies_required %> <%= form.text_area :supplies_required %><br />
-  <%= form.label :children_allowed, class: "required" %> <%= form.check_box :children_allowed %><br />
+  <%= form.label :supplies_required, "Supplies Required" %> <%= form.text_area :supplies_required %><br />
+  <%= form.label :children_allowed, "Are Children Allowed?", class: "required" %> <%= form.check_box :children_allowed %><br />
   <%= form.submit %>
 <% end %>
