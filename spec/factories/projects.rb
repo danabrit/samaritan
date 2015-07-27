@@ -13,6 +13,7 @@
 #  created_at        :datetime
 #  updated_at        :datetime
 #  sponsoring_org    :string(255)
+#  max_signups       :integer
 #
 
 FactoryGirl.define do

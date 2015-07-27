@@ -13,6 +13,7 @@
 #  created_at        :datetime
 #  updated_at        :datetime
 #  sponsoring_org    :string(255)
+#  max_signups       :integer
 #
 
 require 'spec_helper'
@@ -51,5 +52,17 @@ describe Project do
   it "should validate presence of end_time" do
     bad_project = FactoryGirl.build(:project, end_time: nil)
     expect(bad_project).to be_invalid
+  end
+
+  context "#max_signups" do
+    it "should be valid when max_signups is present" do
+      project = FactoryGirl.build(:project, max_signups: 8)
+      expect(project).to be_valid
+    end
+
+    it "should be valid when max_signups is not present" do
+      project = FactoryGirl.build(:project, max_signups: nil)
+      expect(project).to be_valid
+    end
   end
 end

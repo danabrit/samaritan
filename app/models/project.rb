@@ -13,10 +13,11 @@
 #  created_at        :datetime
 #  updated_at        :datetime
 #  sponsoring_org    :string(255)
+#  max_signups       :integer
 #
 
 class Project < ActiveRecord::Base
   validates_presence_of :name, :description, :location,
-                        :children_allowed, :sponsoring_org,
-                        :begin_time, :end_time
+                        :sponsoring_org, :begin_time, :end_time
+  validates_inclusion_of :children_allowed, in: [ true, false ]
 end
