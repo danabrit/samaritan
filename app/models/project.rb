@@ -20,4 +20,7 @@ class Project < ActiveRecord::Base
   validates_presence_of :name, :description, :location,
                         :sponsoring_org, :begin_time, :end_time
   validates_inclusion_of :children_allowed, in: [ true, false ]
+  validates :max_signups, numericality: { only_integer: true, 
+                                          greater_than: 0 },
+                          allow_nil: true
 end

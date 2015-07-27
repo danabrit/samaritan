@@ -64,5 +64,15 @@ describe Project do
       project = FactoryGirl.build(:project, max_signups: nil)
       expect(project).to be_valid
     end
+
+    it "should be valid when max_signups is not present" do
+      project = FactoryGirl.build(:project, max_signups: "")
+      expect(project).to be_valid
+    end
+
+    it "should be invalid when max_signups is negative" do
+      project = FactoryGirl.build(:project, max_signups: -2)
+      expect(project).not_to be_valid
+    end
   end
 end
