@@ -14,6 +14,12 @@ feature "Creating a new project" do
 
     click_button "Create Project"
 
+    expect(page).to have_content("Cool Awesome Project")
     expect(page).to have_content("Description: This is the neatest project ever.")
+    expect(page).to have_content("Sponsoring Organization: The Red Hat Ladies Club")
+    expect(page).to have_content("Date/Time Starts: 2015-07-08 13:31")
+    expect(page).to have_content("Date/Time Ends: 2015-07-08 17:31")
+    expect(page).to have_content("Location: Sunny Side Park")
+    expect(page).to have_content("Max Signups: 3")
   end
 end

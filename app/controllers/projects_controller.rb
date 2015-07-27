@@ -48,6 +48,6 @@ private
   def project_type_params
     params.require(:project).permit(:name, :description, :begin_time, 
       :end_time, :location, :supplies_required, :children_allowed, 
-      :sponsoring_org)
+      :sponsoring_org, :max_signups)
   end
 end
