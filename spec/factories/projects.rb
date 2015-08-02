@@ -26,6 +26,7 @@ FactoryGirl.define do
     supplies_required "Gloves and trash bags"
     children_allowed  true
     sponsoring_org    "The Clean Parks Committee"
+    max_signups       20
   end
 
   factory :invalid_project, class: Project do
