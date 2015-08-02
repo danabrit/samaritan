@@ -21,5 +21,22 @@ feature "Creating a new project" do
     expect(page).to have_content("Date/Time Ends: 2015-07-08 17:31")
     expect(page).to have_content("Location: Sunny Side Park")
     expect(page).to have_content("Max Signups: 3")
+
+    expect(page).to have_content("Project was successfully created.")
+  end
+
+  scenario "User omits a required field" do
+    visit "/projects/new"
+
+    fill_in "Name", with: "Cool Awesome Project"
+    fill_in "Sponsoring Organization", with: "The Red Hat Ladies Club"
+    fill_in "Date/Time Starts", with: "2015-07-08 13:31"
+    fill_in "Date/Time Ends", with: "2015-07-08 17:31"
+    fill_in "Location", with: "Sunny Side Park"
+    fill_in "Max Signups", with: "3"
+
+    click_button "Create Project"
+
+    expect(page).to have_content("There was a problem creating this project.")
   end
 end
