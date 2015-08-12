@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '4.1.1'
+gem 'rails', '4.1.10'
 gem 'pg'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
@@ -22,7 +22,6 @@ source 'https://rails-assets.org' do
 end
 
 group :development, :test do
-  gem 'factory_girl'
   gem 'factory_girl_rails' # Need factory_girl_rails here to keep Rails from generating fixtures when new models are created.
   gem 'rspec-rails'
   gem 'capybara'
