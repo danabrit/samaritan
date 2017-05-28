@@ -7,30 +7,32 @@
   <div class="clear"></div>
 </div>
 
-<table class="long_table">
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Begins</th>
-    <th>Ends</th>
-    <th>Location</th>
-    <th>Supplies</th>
-    <th></th>
-  </tr>
-  <% @projects.each do |project| %>
-    <tr class="<%= cycle('odd', 'even') %>">
-      <td><%= link_to project.name, project %></td>
-      <td><%= project.description %></td>
-      <td><%= project.begin_time %></td>
-      <td><%= project.end_time %></td>
-      <td><%= project.location %></td>
-      <td><%= project.supplies_required %></td>
-      <td>
-        <%= image_tag("children.png", title: "Children Are Allowed to Attend", 
-              alt: "Children allowed") if project.children_allowed? %>
-        <%= link_to image_tag("edit.png", title: "Edit #{ project.name }", 
-              alt: "Edit"), edit_project_path(project) %>
-      </td>
+<% if @projects.any? %>
+  <table class="long_table" id="projects">
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Begins</th>
+      <th>Ends</th>
+      <th>Location</th>
+      <th>Supplies</th>
+      <th></th>
     </tr>
-  <% end %>
-</table>
+    <% @projects.each do |project| %>
+      <tr class="<%= cycle('odd', 'even') %>" id="project_<%= project.id %>">
+        <td><%= link_to project.name, project %></td>
+        <td><%= project.description %></td>
+        <td><%= project.begin_time %></td>
+        <td><%= project.end_time %></td>
+        <td><%= project.location %></td>
+        <td><%= project.supplies_required %></td>
+        <td>
+          <%= image_tag("children.png", title: "Children Are Allowed to Attend", alt: "Children allowed") if project.children_allowed? %>
+          <%= link_to image_tag("edit.png", title: "Edit #{ project.name }", alt: "Edit"), edit_project_path(project) %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  There are currently no active projects.
+<% end %>
