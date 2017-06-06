@@ -12,7 +12,15 @@ Anyone interested in helping a worthwhile cause locally can visit a website, fin
 4. Create the database: <tt>bundle exec rake db:create</tt>
 5. Migrate the database: <tt>bundle exec rake db:migrate</tt>
 
-== Contribution
+== Deployment
+
+=== Environment Variables
+
+On production, you need to set these variables:
+
+* *DEFAULT_URL_HOST* - The actual host of your application (eg. http://example.com)
+
+== Contributions
 
 Though this is a very young project, if you feel inclined, I would welcome contributions in the form of pull requests and issue reports.
 
