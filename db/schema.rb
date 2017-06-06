@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170606195012) do
+ActiveRecord::Schema.define(version: 20170606202248) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 20170606195012) do
   create_table "projects", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "begin_time"
-    t.datetime "end_time"
+    t.datetime "begin_time",                        null: false
+    t.datetime "end_time",                          null: false
     t.string   "location"
     t.text     "supplies_required"
     t.boolean  "children_allowed",  default: false

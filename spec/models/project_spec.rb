@@ -5,8 +5,8 @@
 #  id                :integer          not null, primary key
 #  name              :string
 #  description       :text
-#  begin_time        :datetime
-#  end_time          :datetime
+#  begin_time        :datetime         not null
+#  end_time          :datetime         not null
 #  location          :string
 #  supplies_required :text
 #  children_allowed  :boolean          default(FALSE)
