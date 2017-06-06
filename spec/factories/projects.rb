@@ -3,17 +3,18 @@
 # Table name: projects
 #
 #  id                :integer          not null, primary key
-#  name              :string(255)
+#  name              :string
 #  description       :text
 #  begin_time        :datetime
 #  end_time          :datetime
-#  location          :string(255)
+#  location          :string
 #  supplies_required :text
 #  children_allowed  :boolean          default(FALSE)
 #  created_at        :datetime
 #  updated_at        :datetime
-#  sponsoring_org    :string(255)
+#  sponsoring_org    :string
 #  max_signups       :integer
+#  owner_id          :integer          not null
 #
 
 FactoryGirl.define do
