@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 gem 'annotate'
 gem 'devise'
-gem 'jquery-rails'
 gem 'pg'
 gem 'rails', '~> 4.2.0'
 gem 'sass-rails', '~> 4.0.3'
