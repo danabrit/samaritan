@@ -159,6 +159,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    simple_form (3.5.0)
+      actionpack (> 4, < 5.2)
+      activemodel (> 4, < 5.2)
     sprockets (3.7.1)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -199,6 +202,7 @@ DEPENDENCIES
   rails-assets-datetimepicker!
   rspec-rails
   sass-rails (~> 5.0)
+  simple_form
   twitter-bootstrap-rails
 
 BUNDLED WITH

@@ -5,6 +5,7 @@ gem 'devise'
 gem 'pg'
 gem 'rails', '~> 5.0.1'
 gem 'sass-rails', '~> 5.0'
+gem 'simple_form'
 gem "twitter-bootstrap-rails"
 
 source 'https://rails-assets.org' do
