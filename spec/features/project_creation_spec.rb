@@ -1,7 +1,9 @@
-require "spec_helper"
+require 'rails_helper'
 
 feature "Creating a new project" do
   scenario "User inputs all required fields" do
+    sign_in create(:user)
+
     visit "/projects/new"
 
     fill_in "Name", with: "Cool Awesome Project"
@@ -26,6 +28,8 @@ feature "Creating a new project" do
   end
 
   scenario "User omits a required field" do
+    sign_in create(:user)
+
     visit "/projects/new"
 
     fill_in "Name", with: "Cool Awesome Project"

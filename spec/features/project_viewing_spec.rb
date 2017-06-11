@@ -1,4 +1,4 @@
-require "spec_helper"
+require 'rails_helper'
 
 feature "Viewing the list of existing projects" do
   scenario "Some projects already exist" do

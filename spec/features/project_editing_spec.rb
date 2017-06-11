@@ -1,6 +1,10 @@
-require "spec_helper"
+require 'rails_helper'
 
 feature "Editing an existing project" do
+  before do
+    sign_in create(:user)
+  end
+
   scenario "User inputs all required fields" do
     project = create(:project)
 
