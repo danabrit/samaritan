@@ -46,6 +46,7 @@
       <% end %>
       <%= menu_group pull: :right do %>
         <% if current_user %>
+          <%= menu_item "My Account", edit_user_registration_path %>
           <%= menu_item "Log Out", sign_out_path %>
         <% else %>
           <%= menu_item "Log In", sign_in_path %>
