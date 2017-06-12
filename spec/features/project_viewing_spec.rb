@@ -19,11 +19,11 @@ feature "Viewing the list of existing projects" do
         expect(page).to have_css("img[title='Edit XYZ Project']")
       end
     end
-
-    expect(page).to have_link("New Project")
   end
 
   scenario "There are no existing projects" do
+    sign_in(create(:user))
+
     visit "/projects"
 
     expect(page).to have_content("Projects")

@@ -7,7 +7,7 @@
 #  description       :text
 #  begin_time        :datetime         not null
 #  end_time          :datetime         not null
-#  location          :string
+#  address_1         :string
 #  supplies_required :text
 #  children_allowed  :boolean          default(FALSE)
 #  created_at        :datetime
@@ -15,6 +15,11 @@
 #  sponsoring_org    :string
 #  max_signups       :integer
 #  owner_id          :integer          not null
+#  address_2         :string
+#  city              :string
+#  region            :string
+#  postal_code       :string
+#  country           :string
 #
 
 FactoryGirl.define do
@@ -23,7 +28,9 @@ FactoryGirl.define do
     description       "The park needs some love. Let's clean it up!"
     begin_time        "2014-03-20 17:40:08"
     end_time          "2014-03-20 17:40:08"
-    location          "Pine Wood Park"
+    address_1         "Pine Wood Park"
+    city              "Phoenix"
+    country           "US"
     supplies_required "Gloves and trash bags"
     children_allowed  true
     sponsoring_org    "The Clean Parks Committee"

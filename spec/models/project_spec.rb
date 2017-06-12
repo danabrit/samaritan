@@ -7,7 +7,7 @@
 #  description       :text
 #  begin_time        :datetime         not null
 #  end_time          :datetime         not null
-#  location          :string
+#  address_1         :string
 #  supplies_required :text
 #  children_allowed  :boolean          default(FALSE)
 #  created_at        :datetime
@@ -15,6 +15,11 @@
 #  sponsoring_org    :string
 #  max_signups       :integer
 #  owner_id          :integer          not null
+#  address_2         :string
+#  city              :string
+#  region            :string
+#  postal_code       :string
+#  country           :string
 #
 
 require 'rails_helper'
@@ -40,8 +45,18 @@ describe Project do
       expect(bad_project).to be_invalid
     end
 
-    it "should validate presence of location" do
-      bad_project = build(:project, location: nil)
+    it "should validate presence of address_1" do
+      bad_project = build(:project, address_1: nil)
+      expect(bad_project).to be_invalid
+    end
+
+    it "should validate presence of city" do
+      bad_project = build(:project, city: nil)
+      expect(bad_project).to be_invalid
+    end
+
+    it "should validate presence of country" do
+      bad_project = build(:project, country: nil)
       expect(bad_project).to be_invalid
     end
 

@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170606202248) do
+ActiveRecord::Schema.define(version: 20170612182023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +20,7 @@ ActiveRecord::Schema.define(version: 20170606202248) do
     t.text     "description"
     t.datetime "begin_time",                        null: false
     t.datetime "end_time",                          null: false
-    t.string   "location"
+    t.string   "address_1"
     t.text     "supplies_required"
     t.boolean  "children_allowed",  default: false
     t.datetime "created_at"
@@ -29,6 +28,11 @@ ActiveRecord::Schema.define(version: 20170606202248) do
     t.string   "sponsoring_org"
     t.integer  "max_signups"
     t.integer  "owner_id",                          null: false
+    t.string   "address_2"
+    t.string   "city"
+    t.string   "region"
+    t.string   "postal_code"
+    t.string   "country"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,11 +57,10 @@ ActiveRecord::Schema.define(version: 20170606202248) do
     t.datetime "locked_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
   end
-
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
 end

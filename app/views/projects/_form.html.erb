@@ -10,7 +10,12 @@
   <%= f.input :sponsoring_org, label: "Sponsoring Organization" %>
   <%= f.input :begin_time, as: :date, start_year: Time.zone.now.year, label: "Date/Time Starts" %>
   <%= f.input :end_time, as: :date, start_year: Time.zone.now.year, label: "Date/Time Ends" %>
-  <%= f.input :location %>
+  <%= f.input :address_1 %>
+  <%= f.input :address_2 %>
+  <%= f.input :city %>
+  <%= f.input :region %>
+  <%= f.input :postal_code %>
+  <%= f.input :country %>
   <%= f.input :supplies_required, as: :text, label: "Supplies Required", required: false %>
   <%= f.input :children_allowed, as: :boolean, label: "Are Children Allowed?" %>
   <%= f.input :max_signups, label: "Max Number of Signups Allowed", required: false %>
