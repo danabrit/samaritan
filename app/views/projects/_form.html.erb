@@ -8,8 +8,8 @@
   <%= f.input :name, autofocus: true %>
   <%= f.input :description, as: :text %>
   <%= f.input :sponsoring_org, label: "Sponsoring Organization" %>
-  <%= f.input :begin_time, as: :date, start_year: Time.zone.now.year, label: "Date/Time Starts" %>
-  <%= f.input :end_time, as: :date, start_year: Time.zone.now.year, label: "Date/Time Ends" %>
+  <%= f.input :begin_time, as: :datetime, html5: true, start_year: Time.zone.now.year, label: "Date/Time Starts" %>
+  <%= f.input :end_time, as: :datetime, html5: true, start_year: Time.zone.now.year, label: "Date/Time Ends" %>
   <%= f.input :address_1 %>
   <%= f.input :address_2 %>
   <%= f.input :city %>

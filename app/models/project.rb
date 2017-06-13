@@ -31,6 +31,6 @@ class Project < ActiveRecord::Base
   validates :max_signups, numericality: { only_integer: true, greater_than: 0 }, allow_nil: true
 
   def location
-    [address_1, address_2, city, region, postal_code, country].compact.join(", ")
+    [address_1, address_2, city, region, postal_code, country].compact.delete_if{|x| x == ""}.join(", ")
   end
 end

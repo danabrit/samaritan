@@ -13,19 +13,20 @@ feature "Editing an existing project" do
     fill_in "Name", with: "Cool Awesome Project"
     fill_in "Description", with: "This is the best thing you will ever do."
     fill_in "Sponsoring Organization", with: "The Red Hat Ladies Club"
-    fill_in "Date/Time Starts", with: "2015-07-08 13:31"
-    fill_in "Date/Time Ends", with: "2015-07-08 17:31"
-    fill_in "Location", with: "Sunny Side Park"
-    fill_in "Max Signups", with: "3"
+    select_datetime("Date/Time Starts", Time.zone.now + 1.month)
+    select_datetime("Date/Time Ends", Time.zone.now + 1.month + 4.hours)
+    fill_in "Address 1", with: "Sunny Side Park"
+    fill_in "City", with: "Evansville"
+    fill_in "Region", with: "IN"
+    fill_in "Country", with: "US"
+    fill_in "Max Number of Signups Allowed", with: "3"
 
     click_button "Update Project"
 
     expect(page).to have_content("Cool Awesome Project")
     expect(page).to have_content("Description: This is the best thing you will ever do.")
     expect(page).to have_content("Sponsoring Organization: The Red Hat Ladies Club")
-    expect(page).to have_content("Date/Time Starts: 2015-07-08 13:31")
-    expect(page).to have_content("Date/Time Ends: 2015-07-08 17:31")
-    expect(page).to have_content("Location: Sunny Side Park")
+    expect(page).to have_content("Location: Sunny Side Park, Evansville, IN, US")
     expect(page).to have_content("Max Signups: 3")
 
     expect(page).to have_content("Project was successfully updated.")
@@ -39,10 +40,13 @@ feature "Editing an existing project" do
     fill_in "Name", with: "Cool Awesome Project"
     fill_in "Description", with: ""
     fill_in "Sponsoring Organization", with: "The Red Hat Ladies Club"
-    fill_in "Date/Time Starts", with: "2015-07-08 13:31"
-    fill_in "Date/Time Ends", with: "2015-07-08 17:31"
-    fill_in "Location", with: "Sunny Side Park"
-    fill_in "Max Signups", with: "3"
+    select_datetime("Date/Time Starts", with: Time.zone.now + 1.month)
+    select_datetime("Date/Time Ends", with: Time.zone.now + 1.month + 4.hours)
+    fill_in "Address 1", with: "Sunny Side Park"
+    fill_in "City", with: "Evansville"
+    fill_in "Region", with: "IN"
+    fill_in "Country", with: "US"
+    fill_in "Max Number of Signups Allowed", with: "3"
 
     click_button "Update Project"
 
