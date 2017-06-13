@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :find_project, only: [:show, :edit, :update, :destroy]
+  before_action :find_countries, only: [:new, :edit]
 
   def index
     @projects = Project.all
@@ -46,9 +47,27 @@ private
     @project = Project.find(params[:id])
   end
 
+  def find_countries
+    @countries = ISO3166::Country.all_names_with_codes
+  end
+
   def project_type_params
-    params.require(:project).permit(:name, :description, :begin_time,
-      :end_time, :address_1, :address_2, :city, :region, :postal_code, :country,
-      :supplies_required, :children_allowed, :sponsoring_org, :max_signups)
+    params.require(:project).permit(
+      :name,
+      :description,
+      :begin_time,
+      :end_time,
+      :address_1,
+      :address_2,
+      :city,
+      :region,
+      :postal_code,
+      :country,
+      :time_zone,
+      :supplies_required,
+      :children_allowed,
+      :sponsoring_org,
+      :max_signups
+    )
   end
 end

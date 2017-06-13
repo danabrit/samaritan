@@ -20,6 +20,7 @@
 #  region            :string
 #  postal_code       :string
 #  country           :string
+#  time_zone         :string           not null
 #
 
 require 'rails_helper'

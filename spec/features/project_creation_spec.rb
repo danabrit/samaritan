@@ -14,14 +14,15 @@ feature "Creating a new project" do
     fill_in "Address 1", with: "Sunny Side Park"
     fill_in "City", with: "Evansville"
     fill_in "Region", with: "IN"
-    fill_in "Country", with: "US"
+    select "United States", from: "Country"
+    select "Central Time (US & Canada)", from: "Time Zone"
     fill_in "Max Number of Signups Allowed", with: "3"
 
     click_button "Create Project"
 
     expect(page).to have_content("Cool Awesome Project")
     expect(page).to have_content("Description: This is the neatest project ever.")
-    expect(page).to have_content("Location: Sunny Side Park, Evansville, IN, US")
+    expect(page).to have_content("Location: Sunny Side Park, Evansville, IN, United States")
     expect(page).to have_content("Max Signups: 3")
 
     expect(page).to have_content("Project was successfully created.")
@@ -39,7 +40,8 @@ feature "Creating a new project" do
     fill_in "Address 1", with: "Sunny Side Park"
     fill_in "City", with: "Evansville"
     fill_in "Region", with: "IN"
-    fill_in "Country", with: "US"
+    select "United States", from: "Country"
+    select "Central Time (US & Canada)", from: "Time Zone"
     fill_in "Max Number of Signups Allowed", with: "3"
 
     click_button "Create Project"

@@ -20,6 +20,7 @@
 #  region            :string
 #  postal_code       :string
 #  country           :string
+#  time_zone         :string           not null
 #
 
 class Project < ActiveRecord::Base
@@ -31,6 +32,10 @@ class Project < ActiveRecord::Base
   validates :max_signups, numericality: { only_integer: true, greater_than: 0 }, allow_nil: true
 
   def location
-    [address_1, address_2, city, region, postal_code, country].compact.delete_if{|x| x == ""}.join(", ")
+    [address_1, address_2, city, region, postal_code, country_name].compact.delete_if{|x| x == ""}.join(", ")
+  end
+
+  def country_name
+    ISO3166::Country.new(country)
   end
 end

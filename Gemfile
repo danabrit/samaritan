@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'annotate'
+gem 'countries'
 gem 'devise'
 gem 'pg'
 gem 'rails', '~> 5.0.1'

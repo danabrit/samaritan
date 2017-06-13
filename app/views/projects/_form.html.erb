@@ -15,7 +15,8 @@
   <%= f.input :city %>
   <%= f.input :region %>
   <%= f.input :postal_code %>
-  <%= f.input :country %>
+  <%= f.input :country, as: :select, collection: @countries %>
+  <%= f.input :time_zone, label: "Time Zone" %>
   <%= f.input :supplies_required, as: :text, label: "Supplies Required", required: false %>
   <%= f.input :children_allowed, as: :boolean, label: "Are Children Allowed?" %>
   <%= f.input :max_signups, label: "Max Number of Signups Allowed", required: false %>

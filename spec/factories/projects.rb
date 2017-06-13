@@ -20,6 +20,7 @@
 #  region            :string
 #  postal_code       :string
 #  country           :string
+#  time_zone         :string           not null
 #
 
 FactoryGirl.define do
@@ -31,6 +32,7 @@ FactoryGirl.define do
     address_1         "Pine Wood Park"
     city              "Phoenix"
     country           "US"
+    time_zone         "Central Time (US & Canada)"
     supplies_required "Gloves and trash bags"
     children_allowed  true
     sponsoring_org    "The Clean Parks Committee"
