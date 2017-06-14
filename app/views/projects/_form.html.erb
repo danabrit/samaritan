@@ -14,7 +14,7 @@
   <%= f.input :address_2 %>
   <%= f.input :city %>
   <%= f.input :region %>
-  <%= f.input :postal_code %>
+  <%= f.input :postal_code, label: "ZIP/Postal Code" %>
   <%= f.input :country, as: :select, collection: @countries %>
   <%= f.input :time_zone, label: "Time Zone" %>
   <%= f.input :supplies_required, as: :text, label: "Supplies Required", required: false %>
