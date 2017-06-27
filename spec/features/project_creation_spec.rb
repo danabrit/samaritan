@@ -1,20 +1,21 @@
 require 'rails_helper'
 
 feature "Creating a new project" do
-  scenario "User inputs all required fields" do
+  before do
     sign_in create(:user)
-
     visit "/projects/new"
+  end
 
+  scenario "User inputs all required fields", js: true do
     fill_in "Name", with: "Cool Awesome Project"
     fill_in "Description", with: "This is the neatest project ever."
     fill_in "Sponsoring Organization", with: "The Red Hat Ladies Club"
     select_datetime("Date/Time Starts", Time.zone.now + 1.month)
     select_datetime("Date/Time Ends", Time.zone.now + 1.month + 4.hours)
+    select "United States", from: "Country"
     fill_in "Address 1", with: "Sunny Side Park"
     fill_in "City", with: "Evansville"
-    fill_in "Region", with: "IN"
-    select "United States", from: "Country"
+    select "Indiana", from: "State or Region"
     select "Central Time (US & Canada)", from: "Time Zone"
     fill_in "Max Number of Signups Allowed", with: "3"
 
@@ -28,19 +29,15 @@ feature "Creating a new project" do
     expect(page).to have_content("Project was successfully created.")
   end
 
-  scenario "User omits a required field" do
-    sign_in create(:user)
-
-    visit "/projects/new"
-
+  scenario "User omits a required field", js: true do
     fill_in "Name", with: "Cool Awesome Project"
     fill_in "Sponsoring Organization", with: "The Red Hat Ladies Club"
     select_datetime("Date/Time Starts", Time.zone.now + 1.month)
     select_datetime("Date/Time Ends", Time.zone.now + 1.month + 4.hours)
+    select "United States", from: "Country"
     fill_in "Address 1", with: "Sunny Side Park"
     fill_in "City", with: "Evansville"
-    fill_in "Region", with: "IN"
-    select "United States", from: "Country"
+    select "Indiana", from: "State or Region"
     select "Central Time (US & Canada)", from: "Time Zone"
     fill_in "Max Number of Signups Allowed", with: "3"
 

@@ -23,4 +23,5 @@ end
 
 group :test do
   gem 'database_cleaner'
+  gem 'poltergeist'
 end

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post 'time_zones/states_for_country'
+
   devise_for :users
   resources :projects
 

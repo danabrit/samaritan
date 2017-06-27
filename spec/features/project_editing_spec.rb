@@ -3,22 +3,20 @@ require 'rails_helper'
 feature "Editing an existing project" do
   before do
     sign_in create(:user)
+    @project = create(:project)
+    visit "/projects/#{ @project.id }/edit"
   end
 
-  scenario "User inputs all required fields" do
-    project = create(:project)
-
-    visit "/projects/#{ project.id }/edit"
-
+  scenario "User inputs all required fields", js: true do
     fill_in "Name", with: "Cool Awesome Project"
     fill_in "Description", with: "This is the best thing you will ever do."
     fill_in "Sponsoring Organization", with: "The Red Hat Ladies Club"
     select_datetime("Date/Time Starts", Time.zone.now + 1.month)
     select_datetime("Date/Time Ends", Time.zone.now + 1.month + 4.hours)
+    select "United States", from: "Country"
     fill_in "Address 1", with: "Sunny Side Park"
     fill_in "City", with: "Evansville"
-    fill_in "Region", with: "IN"
-    select "United States", from: "Country"
+    select "Indiana", from: "State or Region"
     select "Central Time (US & Canada)", from: "Time Zone"
     fill_in "Max Number of Signups Allowed", with: "3"
 
@@ -33,20 +31,16 @@ feature "Editing an existing project" do
     expect(page).to have_content("Project was successfully updated.")
   end
 
-  scenario "User omits a required field" do
-    project = create(:project)
-
-    visit "/projects/#{ project.id }/edit"
-
+  scenario "User omits a required field", js: true do
     fill_in "Name", with: "Cool Awesome Project"
     fill_in "Description", with: ""
     fill_in "Sponsoring Organization", with: "The Red Hat Ladies Club"
     select_datetime("Date/Time Starts", with: Time.zone.now + 1.month)
     select_datetime("Date/Time Ends", with: Time.zone.now + 1.month + 4.hours)
+    select "United States", from: "Country"
     fill_in "Address 1", with: "Sunny Side Park"
     fill_in "City", with: "Evansville"
-    fill_in "Region", with: "IN"
-    select "United States", from: "Country"
+    select "Indiana", from: "State or Region"
     select "Central Time (US & Canada)", from: "Time Zone"
     fill_in "Max Number of Signups Allowed", with: "3"
 
