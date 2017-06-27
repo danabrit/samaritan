@@ -8,7 +8,8 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @project = Project.new
+    @project = current_user.projects.new
+    @states = []
   end
 
   def create
