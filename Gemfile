@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'annotate'
+gem 'coffee-rails'
 gem 'countries'
 gem 'devise'
 gem 'pg'
