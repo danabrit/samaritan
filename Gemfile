@@ -5,7 +5,7 @@ gem 'coffee-rails'
 gem 'countries'
 gem 'devise'
 gem 'pg'
-gem 'rails', '~> 5.0.1'
+gem 'rails', '~> 5.1.6'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
 gem "twitter-bootstrap-rails"
