@@ -7,8 +7,8 @@ Anyone interested in helping a worthwhile cause locally can visit a website, fin
 ## Installation
 
 1. Clone the repo.
-2. Navigate to the cloned repo.
-3. Run `bundle install`.
+2. `cd samaritan`
+3. `bundle install`
 4. Create the database: `bundle exec rake db:create`
 5. Migrate the database: `bundle exec rake db:migrate`
 
