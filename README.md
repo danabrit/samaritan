@@ -1,6 +1,6 @@
 # Samaritan
 
-This project is designed to help bring volunteers and community service projects together. The goal is to enable non-profit and other organizations to publicize their upcoming service projects, and the type of help they need from volunteers. 
+This project is designed to help bring volunteers and community service projects together. The goal is to enable non-profit and other organizations to publicize their upcoming service projects, and the type of help they need from volunteers.
 
 Anyone interested in helping a worthwhile cause locally can visit a website, find out what types of projects they could reasonably contribute to, and get involved. The aim is to keep the bar low for involvement.
 
@@ -26,11 +26,11 @@ Though this is a very young project, if you feel inclined, I would welcome contr
 
 ### Pull Requests
 
-* No pull requests will be accepted that break the test suite. 
+* No pull requests will be accepted that break the test suite.
 * The application is built using the following test suite, and code contributions should include suitable tests using the same stack:
 
   * rspec
-  * factory_girl
+  * factory_bot
   * capybara
 
 * View and route tests are unnecessary.

@@ -23,7 +23,7 @@
 #  time_zone         :string           not null
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :project do
     name              "Park Cleanup"
     description       "The park needs some love. Let's clean it up!"

@@ -26,13 +26,13 @@
 #  updated_at             :datetime         not null
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :user, aliases: [:owner] do
     first_name                    "Example"
-    sequence(:last_name)          {|n| "Person#{n}" }
-    sequence(:email)              {|n| "user#{n}@example.com" }
+    sequence(:last_name)          { |n| "Person#{n}" }
+    sequence(:email)              { |n| "user#{n}@example.com" }
     password                      "password"
-    sequence(:confirmation_token) {|n| "token#{n}" }
+    sequence(:confirmation_token) { |n| "token#{n}" }
     confirmed_at                  Time.zone.today
     confirmation_sent_at          Time.zone.yesterday
   end

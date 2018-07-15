@@ -15,8 +15,8 @@ source 'https://rails-assets.org' do
 end
 
 group :development, :test do
-  gem 'factory_girl'
-  gem 'factory_girl_rails' # Need factory_girl_rails here to keep Rails from generating fixtures when new models are created.
+  gem 'factory_bot'
+  gem 'factory_bot_rails'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'puma'
