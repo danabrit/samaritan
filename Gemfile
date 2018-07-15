@@ -5,7 +5,7 @@ gem 'coffee-rails'
 gem 'countries'
 gem 'devise'
 gem 'pg'
-gem 'rails', '~> 5.1.6'
+gem 'rails', '~> 5.2.0'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
 gem "twitter-bootstrap-rails"
@@ -19,6 +19,7 @@ group :development, :test do
   gem 'factory_girl_rails' # Need factory_girl_rails here to keep Rails from generating fixtures when new models are created.
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'puma'
 end
 
 group :test do
