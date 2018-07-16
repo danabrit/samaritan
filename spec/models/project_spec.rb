@@ -26,7 +26,7 @@
 require 'rails_helper'
 
 describe Project do
-  context "associations" do
+  context 'associations' do
     it "returns a project's owner" do
       user = create(:user)
       project = build(:project, owner_id: user.id)
@@ -35,69 +35,69 @@ describe Project do
     end
   end
 
-  context "validations" do
-    it "should validate presence of name" do
+  context 'validations' do
+    it 'should validate presence of name' do
       bad_project = build(:project, name: nil)
       expect(bad_project).to be_invalid
     end
 
-    it "should validate presence of description" do
+    it 'should validate presence of description' do
       bad_project = build(:project, description: nil)
       expect(bad_project).to be_invalid
     end
 
-    it "should validate presence of address_1" do
+    it 'should validate presence of address_1' do
       bad_project = build(:project, address_1: nil)
       expect(bad_project).to be_invalid
     end
 
-    it "should validate presence of city" do
+    it 'should validate presence of city' do
       bad_project = build(:project, city: nil)
       expect(bad_project).to be_invalid
     end
 
-    it "should validate presence of country" do
+    it 'should validate presence of country' do
       bad_project = build(:project, country: nil)
       expect(bad_project).to be_invalid
     end
 
-    it "should validate presence of children_allowed" do
+    it 'should validate presence of children_allowed' do
       bad_project = build(:project, children_allowed: nil)
       expect(bad_project).to be_invalid
     end
 
-    it "should validate presence of sponsoring_org" do
+    it 'should validate presence of sponsoring_org' do
       bad_project = build(:project, sponsoring_org: nil)
       expect(bad_project).to be_invalid
     end
 
-    it "should validate presence of begin_time" do
+    it 'should validate presence of begin_time' do
       bad_project = build(:project, begin_time: nil)
       expect(bad_project).to be_invalid
     end
 
-    it "should validate presence of end_time" do
+    it 'should validate presence of end_time' do
       bad_project = build(:project, end_time: nil)
       expect(bad_project).to be_invalid
     end
 
-    context "#max_signups" do
-      it "should be valid when max_signups is present" do
+    context '#max_signups' do
+      it 'should be valid when max_signups is present' do
         project = build(:project, max_signups: 8)
         expect(project).to be_valid
       end
 
-      it "should be valid when max_signups is not present" do
+      it 'should be valid when max_signups is not present' do
         project = build(:project, max_signups: nil)
         expect(project).to be_valid
       end
 
-      it "should be valid when max_signups is not present" do
-        project = build(:project, max_signups: "")
+      it 'should be valid when max_signups is not present' do
+        project = build(:project, max_signups: '')
         expect(project).to be_valid
       end
 
-      it "should be invalid when max_signups is negative" do
+      it 'should be invalid when max_signups is negative' do
         project = build(:project, max_signups: -2)
         expect(project).not_to be_valid
       end

@@ -1,24 +1,26 @@
 <% @project.errors.messages.each do |message| %>
-  <p><%= message[0].to_s %> <% message[1].each do |error| %>
-                           <%= error %>
-                         <% end %></p>
+  <p>
+    <%= message[0].to_s %> <% message[1].each do |error| %>
+      <%= error %>
+    <% end %>
+ </p>
 <% end %>
 
 <%= simple_form_for(@project, html: { class: 'form-horizontal' }) do |f| %>
   <%= f.input :name, autofocus: true %>
   <%= f.input :description, as: :text %>
-  <%= f.input :sponsoring_org, label: "Sponsoring Organization" %>
-  <%= f.input :begin_time, as: :datetime, html5: true, start_year: Time.zone.now.year, label: "Date/Time Starts" %>
-  <%= f.input :end_time, as: :datetime, html5: true, start_year: Time.zone.now.year, label: "Date/Time Ends" %>
+  <%= f.input :sponsoring_org, label: 'Sponsoring Organization' %>
+  <%= f.input :begin_time, as: :datetime, html5: true, start_year: Time.zone.now.year, label: 'Date/Time Starts' %>
+  <%= f.input :end_time, as: :datetime, html5: true, start_year: Time.zone.now.year, label: 'Date/Time Ends' %>
   <%= f.input :country, as: :select, collection: @countries %>
   <%= f.input :address_1 %>
   <%= f.input :address_2 %>
   <%= f.input :city %>
-  <%= f.input :region, as: :select, collection: @states, label: "State or Region" %>
-  <%= f.input :postal_code, label: "ZIP/Postal Code" %>
-  <%= f.input :time_zone, label: "Time Zone" %>
-  <%= f.input :supplies_required, as: :text, label: "Supplies Required", required: false %>
-  <%= f.input :children_allowed, as: :boolean, label: "Are Children Allowed?" %>
-  <%= f.input :max_signups, label: "Max Number of Signups Allowed", required: false %>
+  <%= f.input :region, as: :select, collection: @states, label: 'State or Region' %>
+  <%= f.input :postal_code, label: 'ZIP/Postal Code' %>
+  <%= f.input :time_zone, label: 'Time Zone' %>
+  <%= f.input :supplies_required, as: :text, label: 'Supplies Required', required: false %>
+  <%= f.input :children_allowed, as: :boolean, label: 'Are Children Allowed?' %>
+  <%= f.input :max_signups, label: 'Max Number of Signups Allowed', required: false %>
   <%= f.button :submit %>
 <% end %>
