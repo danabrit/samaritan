@@ -36,71 +36,71 @@ describe Project do
   end
 
   context 'validations' do
-    it 'should validate presence of name' do
-      bad_project = build(:project, name: nil)
-      expect(bad_project).to be_invalid
+    it 'is valid when required attributes are present' do
+      expect(build(:project)).to be_valid
     end
 
-    it 'should validate presence of description' do
-      bad_project = build(:project, description: nil)
-      expect(bad_project).to be_invalid
-    end
-
-    it 'should validate presence of address_1' do
-      bad_project = build(:project, address_1: nil)
-      expect(bad_project).to be_invalid
-    end
-
-    it 'should validate presence of city' do
-      bad_project = build(:project, city: nil)
-      expect(bad_project).to be_invalid
-    end
-
-    it 'should validate presence of country' do
-      bad_project = build(:project, country: nil)
-      expect(bad_project).to be_invalid
-    end
-
-    it 'should validate presence of children_allowed' do
-      bad_project = build(:project, children_allowed: nil)
-      expect(bad_project).to be_invalid
-    end
-
-    it 'should validate presence of sponsoring_org' do
-      bad_project = build(:project, sponsoring_org: nil)
-      expect(bad_project).to be_invalid
-    end
-
-    it 'should validate presence of begin_time' do
-      bad_project = build(:project, begin_time: nil)
-      expect(bad_project).to be_invalid
-    end
-
-    it 'should validate presence of end_time' do
-      bad_project = build(:project, end_time: nil)
-      expect(bad_project).to be_invalid
-    end
-
-    context '#max_signups' do
-      it 'should be valid when max_signups is present' do
-        project = build(:project, max_signups: 8)
-        expect(project).to be_valid
+    context 'is invalid when required attributes are missing' do
+      it 'name' do
+        expect(build(:project, name: nil)).to be_invalid
       end
 
-      it 'should be valid when max_signups is not present' do
-        project = build(:project, max_signups: nil)
-        expect(project).to be_valid
+      it 'description' do
+        expect(build(:project, description: nil)).to be_invalid
       end
 
-      it 'should be valid when max_signups is not present' do
-        project = build(:project, max_signups: '')
-        expect(project).to be_valid
+      it 'address_1' do
+        expect(build(:project, address_1: nil)).to be_invalid
       end
 
-      it 'should be invalid when max_signups is negative' do
-        project = build(:project, max_signups: -2)
-        expect(project).not_to be_valid
+      it 'city' do
+        expect(build(:project, city: nil)).to be_invalid
       end
+
+      it 'country' do
+        expect(build(:project, country: nil)).to be_invalid
+      end
+
+      it 'children_allowed' do
+        expect(build(:project, children_allowed: nil)).to be_invalid
+      end
+
+      it 'sponsoring_org' do
+        expect(build(:project, sponsoring_org: nil)).to be_invalid
+      end
+
+      it 'begin_time' do
+        expect(build(:project, begin_time: nil)).to be_invalid
+      end
+
+      it 'end_time' do
+        expect(build(:project, end_time: nil)).to be_invalid
+      end
+
+      it 'end_time' do
+        expect(build(:project, time_zone: nil)).to be_invalid
+      end
+
+      it 'is invalid when max_signups is negative' do
+        expect(build(:project, max_signups: -2)).not_to be_valid
+      end
+    end
+  end
+
+  context 'location' do
+    it 'comma-separates fields when all are present' do
+      project = build(
+        :project,
+        address_1: '123 Main St.',
+        address_2: 'Apt 15',
+        city: 'NYC',
+        region: 'NY',
+        postal_code: '11101',
+        country: 'US',
+      )
+
+      address = '123 Main St., Apt 15, NYC, NY, 11101, United States of America'
+      expect(project.location).to eq(address)
     end
   end
 end
