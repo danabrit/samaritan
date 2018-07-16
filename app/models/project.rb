@@ -26,8 +26,8 @@
 class Project < ActiveRecord::Base
   belongs_to :owner, class_name: 'User'
 
-  validates :name, :description, :address_1, :city, :country, presence: true
-  validates :sponsoring_org, :begin_time, :end_time, presence: true
+  validates :name, :description, :address_1, :city, :country, :sponsoring_org,
+    :begin_time, :end_time, :time_zone, presence: true
   validates_inclusion_of :children_allowed, in: [ true, false ]
   validates :max_signups, numericality: { only_integer: true, greater_than: 0 },
     allow_nil: true

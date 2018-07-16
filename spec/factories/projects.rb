@@ -33,10 +33,8 @@ FactoryBot.define do
     city 'Phoenix'
     country 'US'
     time_zone 'Central Time (US & Canada)'
-    supplies_required 'Gloves and trash bags'
     children_allowed true
     sponsoring_org 'The Clean Parks Committee'
-    max_signups 20
     owner
   end
 
