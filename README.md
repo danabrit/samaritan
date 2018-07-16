@@ -27,7 +27,7 @@ Though this is a very young project, if you feel inclined, I would welcome contr
 ### Pull Requests
 
 * No pull requests will be accepted that break the test suite.
-* The application is built using the following test suite, and code contributions should include suitable tests using the same stack:
+* The application is built using the following gems, and code contributions should include suitable tests using the same stack:
 
   * rspec
   * factory_bot
