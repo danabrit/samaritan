@@ -88,7 +88,7 @@ describe Project do
   end
 
   context 'location' do
-    it 'comma-separates fields when all are present' do
+    it 'when all are present' do
       project = build(
         :project,
         address_1: '123 Main St.',
@@ -100,6 +100,19 @@ describe Project do
       )
 
       address = '123 Main St., Apt 15, NYC, NY, 11101, United States of America'
+      expect(project.location).to eq(address)
+    end
+
+    it 'when unrequired fields are missing' do
+      project = build(
+        :project,
+        address_1: '123 Main St.',
+        city: 'NYC',
+        postal_code: '11101',
+        country: 'US',
+      )
+
+      address = '123 Main St., NYC, 11101, United States of America'
       expect(project.location).to eq(address)
     end
   end
