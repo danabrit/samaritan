@@ -6,6 +6,10 @@ feature "Creating a new project" do
     visit "/projects/new"
   end
 
+  scenario 'Fields are visible', js: true do
+    expect(page).to have_css('input#project_name')
+  end
+
   scenario "User inputs all required fields", js: true do
     fill_in "Name", with: "Cool Awesome Project"
     fill_in "Description", with: "This is the neatest project ever."
